@@ -14,7 +14,7 @@ In the docker-compose_local.yml configuration file, the topics are defined, the 
 
 To stop Kafka uses
 <pre><code>$ docker-compose stop </code></pre>
-[for more information Apache Kafka: Docker Container refer to this post](https://towardsdatascience.com/kafka-docker-python-408baf0e1088)
+for more information Apache Kafka: Docker Container refer to this [post](https://towardsdatascience.com/kafka-docker-python-408baf0e1088)
 
 # Send frames in real time with Kafka:
 We will create a subscriber that takes the webcam frames, transforms them into bytes and sends them to a topic named "distributed-video1"
