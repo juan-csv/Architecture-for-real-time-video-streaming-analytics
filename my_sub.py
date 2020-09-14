@@ -63,11 +63,10 @@ my_producer = KafkaProducer(
 
 def message_sender(m):
     """Send (key, value) to a Kafka producer"""
-    if type(m) == dict:
-        my_producer = KafkaProducer(
-            bootstrap_servers='localhost:9092',
-            value_serializer=lambda v: json.dumps(v).encode('utf-8'))
-        my_producer.send(cfg.end_topic,m)
+    my_producer = KafkaProducer(
+        bootstrap_servers='localhost:9092',
+        value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    my_producer.send(cfg.end_topic,m)
     return m
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
@@ -98,9 +97,9 @@ if __name__ == "__main__":
     stream.map(
             get_faces
         ).map(
-            message_sender
-        ).map(
             get_emotions
+        ).map(
+            message_sender
         ).pprint()
 
     # comienza la computación de streaming
